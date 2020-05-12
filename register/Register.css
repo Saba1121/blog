@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Trebuchet MS;
+  overflow-x: hidden;
+  background-color: rgb(230,230,230);
+}
+
+p,h1,h2,h3,h4,h5,h6,ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: left;
+  list-style: none;
+}
+
+.nav {
+  width: 100%;
+  background-color: white;
+  height: 50px;
+}
+
+.nav .left {
+  padding: 0 40px;
+  float: left;
+  text-align: center;
+}
+
+.nav .left p {
+  font-size: 25px;
+  letter-spacing: 5px;
+  font-weight: 100;
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+.nav .right {
+  float: right;
+  text-align: center;
+}
+
+.nav .right li {
+  padding: 16px 30px;
+  cursor: pointer;
+}
+
+.nav .right li:hover {
+  background-color: rgb(200,200,200);
+  transition: .3s;
+}
+
+/********/
+
+.register {
+  background-color: white;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.register .box {
+  padding: 30px 0;
+}
+
+.register .box p {
+  font-size: 35px;
+  margin: 0 0 5px 0;
+}
+
+.register .box input {
+  width: 40%;
+  text-align: center;
+  padding: 10px 15px;
+  margin: 15px 0;
+  border: none;
+  border-bottom: solid 1px rgb(0,0,0);
+  outline: none;
+  transition: 1s;
+}
+
+.register .box button {
+  outline: none;
+  margin: 20px 0;
+  padding: 10px 80px;
+  border: solid .1px rgb(190,190,190);
+  cursor: pointer;
+  background-color: rgb(230,230,230);
+}
+
+.register .box button:active {
+  transition: .1s;
+  border-bottom: solid 1px green;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .nav ul {
+    display: none;
+  }
+
+  .register {
+    width: 80%;
+  }
+}

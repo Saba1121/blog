@@ -1,0 +1,32 @@
+.nav {
+    background-color: rgb(77,99,111);
+    height: 50px;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+}
+  
+.nav ul li {
+    float: left;
+    padding: 17px 20px;
+    letter-spacing: 1px;
+}
+  
+.nav ul li:hover {
+    transition: .4s;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+  
+.nav .logout {
+    margin: 12px 30px;
+    float: right;
+}
+  
+.nav .logout button {
+    background-color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
