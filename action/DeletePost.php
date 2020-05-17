@@ -3,16 +3,15 @@
 session_start();
 require_once '../dbClass.php';
 
-if($_SESSION['logged'] && isset($_POST['delete_prof'])) {
-    $postsDB -> delete($_POST['id']);
 
-    header("Location: ../profile/MyPosts.php");
-}
+if($_SESSION['logged'] && isset($_POST['dlt'])) {
+    try {
+        $postsDB -> delete($_POST['id']);
 
-else if($_SESSION['logged'] && isset($_POST['delete_main'])) {
-    $postsDB -> delete($_POST['id']);
-
-    header("Location: ../mainPage/MainPage.php");
+        header("Location: ../profile/MyPosts.php");
+    } catch(Exception $e) {
+        header("Location: ../profile/MyPosts.php");
+    }
 } else {    
     header('Location: ../login/login.php');
 }

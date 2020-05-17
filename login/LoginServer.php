@@ -2,7 +2,6 @@
 
 
 require_once ('../dbClass.php');
-// $accountsDB = new accounts_db();
 
 
 if(isset($_POST['login'])) {

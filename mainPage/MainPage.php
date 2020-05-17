@@ -1,17 +1,19 @@
 <?php
 	session_start();
 
+	//If visitor isn't logged in redirect to login page
 	if(!$_SESSION['logged']) header('Location: ../login/login.php');
 
 	
 	require_once '../dbClass.php';
 	
+	//Get current users info
 	$stmt = $accountsDB -> getCurrentUser();
 	$email = $stmt['email'];
 	$username = $stmt['username'];
 
-	
-	$result = $postsDB -> fetch_all('id DESC');
+	//fetching posts
+	$fetchedPosts = $postsDB -> fetch_all('id DESC');
 
 ?>
 
@@ -62,15 +64,15 @@
 				<form class="" action="../action/Post.php" method="post">
 					<input type="text" name="post" placeholder="Status: Feeling Red">
 
-					<button type="submit" name="postact" >Post</button>
+					<button type="submit" name="postact">Post</button>
 				</form>
 
 			</div>
 
 
-			
-			<?php if($result->rowCount() > 0): ?>
-				<?php while($row = $result->fetch(PDO::FETCH_ASSOC)): ?>
+			<!-- Displaying posts -->
+			<?php if($fetchedPosts->rowCount() > 0): ?>
+				<?php while($row = $fetchedPosts->fetch(PDO::FETCH_ASSOC)): ?>
 					<div class='posts'>
 
 						<p><?php echo htmlspecialchars($row["post"]) ?></p>

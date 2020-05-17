@@ -2,14 +2,14 @@
 
 	session_start();
 
+	//If user is not logged in redirect to login page
   	if(!$_SESSION['logged']) header('Location: ../login/login.php');
 
 	require_once '../dbClass.php';
 
 	$user = $accountsDB -> getCurrentUser();
 
-
-	$stmt = $postsDB -> find('posters_id = ?', [$_SESSION['id']], 'id desc');
+	$usersPosts = $postsDB -> find('posters_id = ?', [$_SESSION['id']], 'id desc');
 
 ?>
 
@@ -43,9 +43,9 @@
 
 
 
-    	<?php if($stmt -> rowCount() > 0): ?>
+    	<?php if($usersPosts -> rowCount() > 0): ?>
 
-        	<?php while ($row =  $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+        	<?php while ($row =  $usersPosts->fetch(PDO::FETCH_ASSOC)): ?>
 
 				<div class='posts'>
 
@@ -54,10 +54,9 @@
 					<h6><?php echo $row['time'] ?><h6>
 
 
-					<!-- Checks if post is yours to give option to delete -->
  					<form action='../action/DeletePost.php' method='post'>
 						<input type='hidden' name='id' value='<?php echo $row['id']; ?>'>
-						<button type='submit' name='delete_prof'> Delete </button>
+						<button type='submit' name='dlt'> Delete </button>
 					</form>
 					
 				</div>
